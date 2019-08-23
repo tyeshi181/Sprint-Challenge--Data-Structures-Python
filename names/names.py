@@ -60,10 +60,10 @@ f.close()
 
 
 duplicates = []
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
 
 # names = names_1 + names_2
 # x = {}
@@ -75,6 +75,17 @@ for name_1 in names_1:
 # for key in x:
 #     if x[key] > 1:
 #         duplicates.append(key)
+
+binary_search_tree = None
+for name in names_1:
+    if binary_search_tree is None:
+        binary_search_tree = BinarySearchTree(name)
+    else:
+        binary_search_tree.insert(name)
+
+for name in names_2:
+    if binary_search_tree.contains(name):
+        duplicates.append(name)
 
 
 end_time = time.time()
